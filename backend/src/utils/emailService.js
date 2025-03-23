@@ -112,7 +112,11 @@ const sendContactFormEmail = async (name, email, subject, message) => {
 
 // Send password reset email
 const sendPasswordResetEmail = async (email, resetToken) => {
-const resetUrl = `${process.env.FRONTEND_URL || 'https://edu-connect2.vercel.app'}/reset-password?token=${resetToken}`;
+if (!process.env.FRONTEND_URL) {
+    console.error('FRONTEND_URL environment variable is not set!');
+  }
+  
+  const resetUrl = `${process.env.FRONTEND_URL || 'http://localhost:5173'}/reset-password/${resetToken}`;
 
   const mailOptions = {
     from: `"EduConnect" <${process.env.EMAIL_USER}>`,
