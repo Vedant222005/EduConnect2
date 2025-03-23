@@ -112,7 +112,7 @@ const sendContactFormEmail = async (name, email, subject, message) => {
 
 // Send password reset email
 const sendPasswordResetEmail = async (email, resetToken) => {
-  const resetUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/reset-password/${resetToken}`;
+  const resetUrl = `${process.env.FRONTEND_URL || 'https://edu-connect2.vercel.app/'}/reset-password/${resetToken}`;
 
   const mailOptions = {
     from: `"EduConnect" <${process.env.EMAIL_USER}>`,
